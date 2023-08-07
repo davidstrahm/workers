@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-labels */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
-import { animationFrameScheduler, interval, map } from 'rxjs';
+import { animationFrameScheduler, exhaustMap, interval, map, take } from 'rxjs';
 import * as Stats from 'stats.js';
 
 @Component({
@@ -61,6 +61,24 @@ export class MainComponent implements AfterViewInit {
                 }),
             )
             .subscribe();
+
+        interval(5000)
+            .pipe(
+                map(x => {
+                    // interval(0).pipe(take(1000
+                    // ))
+                    console.log('interval', x);
+
+                    // for (let i = 0; i < 10000; i++) {
+                    //     console.log('loop');
+                    // }
+                }),
+                take(5),
+            )
+            .subscribe();
+        // console.log('start');
+        // this.simulateHighCpuLoad(100, 20000);
+        // console.log('end');
     }
 
     drawCube(
@@ -94,7 +112,11 @@ export class MainComponent implements AfterViewInit {
             vertices[i] = [dx2 + x, dy2 + y, dz2 + z];
         }
 
+        // set canvas background color
+        ctx.fillStyle = '#161B22';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         // draw edges
+        ctx.strokeStyle = 'orange';
         ctx.beginPath();
         ctx.moveTo(vertices[0][0], vertices[0][1]);
         ctx.lineTo(vertices[1][0], vertices[1][1]);
@@ -116,6 +138,18 @@ export class MainComponent implements AfterViewInit {
             ctx.moveTo(vertices[i][0], vertices[i][1]);
             ctx.lineTo(vertices[i + 4][0], vertices[i + 4][1]);
             ctx.stroke();
+        }
+    }
+
+    simulateHighCpuLoad(interval: number, duration: number) {
+        const startTime = Date.now();
+        const endTime = startTime + duration;
+        while (Date.now() < endTime) {
+            if ((Date.now() - startTime) % interval === 0) {
+                for (let i = 0; i < 1e9; i++) {
+                    // console.log('loop');
+                }
+            }
         }
     }
 }
