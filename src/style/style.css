@@ -1,5 +1,5 @@
 body {
-    background: rgb(62, 60, 63);
+    background: #3f4348;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,48 +21,48 @@ body {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateX(0deg) translateZ(100px);
 }
 #box-back {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateY(180deg) translateZ(100px);
 }
 #box-left {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateY(-90deg) translateZ(100px);
 }
 #box-right {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateY(90deg) translateZ(100px);
 }
 #box-top {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateX(90deg) translateZ(100px);
 }
 #box-bottom {
     position: absolute;
     width: 200px;
     height: 200px;
-    border: 2px solid #b669f7;
-    background-color: rgba(206, 148, 255, 20%);
+    border: 2px solid orange;
+    background-color: rgba(58, 22, 190, 20%);
     transform: rotateX(-90deg) translateZ(100px);
 }
 
