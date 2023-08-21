@@ -17,11 +17,11 @@ window.onload = function () {
     requestAnimationFrame(animateCube);
 
     function startWorkers() {
-        const nWorkers = 16;
+        const nWorkers = 31;
 
         for (let i = 0; i < nWorkers; i++) {
             let w = new Worker('worker.js');
-            w.onmessage = function (event) {
+            w.onmessage = event => {
                 console.log('[main.js] received: ', event.data);
             };
             workers.push(w);

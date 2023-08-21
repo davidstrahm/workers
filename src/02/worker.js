@@ -1,18 +1,14 @@
 // listen to messages from the main thread
-self.addEventListener(
-    'message',
-    function (e) {
-        const payload = e.data;
-        console.log('[Worker] block for ', payload, ' seconds');
+self.addEventListener('message', e => {
+    const payload = e.data;
+    console.log('[Worker] block for ', payload, ' seconds');
 
-        // completely block this thread for n seconds
-        block(payload);
+    // completely block this thread for n seconds
+    block(payload);
 
-        // send message to main thread
-        self.postMessage('[Worker] done');
-    },
-    false,
-);
+    // send message to main thread
+    self.postMessage('[Worker] done');
+});
 
 function block(n) {
     const start = new Date().getTime();

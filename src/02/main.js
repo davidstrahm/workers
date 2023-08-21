@@ -11,7 +11,7 @@ window.onload = function () {
         if (typeof w == 'undefined') {
             w = new Worker('worker.js');
         }
-        w.onmessage = function (event) {
+        w.onmessage = event => {
             console.log('[main.js] received: ', event.data);
         };
     } else {
