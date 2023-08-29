@@ -17,7 +17,7 @@ window.onload = function () {
     requestAnimationFrame(animateCube);
 
     function startWorkers() {
-        const nWorkers = 31;
+        const nWorkers = 5;
 
         for (let i = 0; i < nWorkers; i++) {
             let w = new Worker('worker.js');
